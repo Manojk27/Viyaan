@@ -4,84 +4,221 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viyaan Montessori | The Architecture of Independence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* Custom Styles & Variables */
+        /* --- CSS STYLES --- */
         :root {
-            --viyaan-sage: #2E473B;
-            --viyaan-terra: #E2725B;
-            --viyaan-gold: #F4D03F;
-            --viyaan-linen: #FAF9F6;
+            --sage: #2E473B;
+            --terra: #E2725B;
+            --gold: #F4D03F;
+            --linen: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--viyaan-linen);
-            color: var(--viyaan-sage);
+            background-color: var(--linen);
+            color: var(--sage);
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        .font-syne { font-family: 'Syne', sans-serif; }
-        .font-serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
-
-        /* Infinite Scroll Movement Logic */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-scroll {
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2rem 5%;
             display: flex;
-            width: calc(250% + 2rem);
-            animation: scroll 30s linear infinite;
+            justify-content: space-between;
+            align-items: flex-end;
+            background: linear-gradient(to bottom, var(--linen), transparent);
         }
-        .animate-scroll:hover { animation-play-state: paused; }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--terra);
+        }
+
+        .location-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            opacity: 0.6;
+        }
 
         .glass {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(46, 71, 59, 0.1);
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
         }
 
-        .hover-lift { transition: transform 0.4s ease; }
-        .hover-lift:hover { transform: translateY(-10px); }
-    </style>
-</head>
-<body class="antialiased overflow-x-hidden">
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
 
-    <nav class="fixed top-0 w-full z-[100] p-6 lg:p-10 flex justify-between items-end">
-        <div class="flex flex-col">
-            <span class="text-[10px] font-bold tracking-[0.4em] uppercase opacity-60">Bangalore 2026</span>
-            <div class="text-4xl font-syne font-extrabold text-[#E2725B]">VIYAAN</div>
-        </div>
-        <div class="glass px-8 py-4 rounded-full flex gap-10 text-[10px] font-bold uppercase tracking-widest">
-            <a href="#manifesto" class="hover:text-[#E2725B] transition">Manifesto</a>
-            <a href="#lab" class="hover:text-[#E2725B] transition">The Lab</a>
-            <a href="#apply" class="text-[#E2725B]">Enroll</a>
-        </div>
-    </nav>
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sage);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
 
-    <section id="manifesto" class="min-h-screen flex items-center px-6 lg:px-20 pt-32">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10">
-            <div class="lg:col-span-8">
-                <h1 class="text-6xl lg:text-[9rem] font-syne font-extrabold leading-[0.9] tracking-tighter mb-10">
-                    OWN THE <br><span class="text-[#E2725B] font-serif-italic font-light">FUTURE.</span>
-                </h1>
-                <p class="text-xl lg:text-3xl max-w-2xl font-light leading-relaxed">
-                    At Viyaan, we don’t teach children to follow. We provide the architecture for them to <span class="font-bold">stand alone</span>, plan their days, and ignite their inner energy. 
-                </p>
-            </div>
-            <div class="lg:col-span-4 flex flex-col justify-end pb-10 border-t-4 border-[#2E473B] pt-6">
-                <span class="text-xs font-bold uppercase tracking-widest mb-4">The Track Change</span>
-                <p class="text-sm opacity-80 leading-loose">
-                    Moving from traditional passive education to active mastery. Our boutique Bangalore villa is a scientific environment designed for the 2026 generation.
-                </p>
-            </div>
-        </div>
-    </section>
+        .nav-links a:hover { color: var(--terra); }
+        .enroll-btn { color: var(--terra) !important; }
 
-    <section class="py-20 overflow-hidden relative">
-        <div class="animate-scroll gap-10" id="gallery">
-            <img src="https://images.unsplash.com/photo-1560448204-61dc36dc98c8?q=80&w=1000&auto=format&fit=crop" class="w-[70vw] lg:w-[40vw] h-[50vh] lg:h-[70vh] object-cover rounded-[3rem] hover-lift grayscale hover:grayscale-0" alt="Villa Sunlight">
-            <img src="
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 12rem 5% 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            margin-bottom: 2.5rem;
+        }
+
+        .italic-serif {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            color: var(--terra);
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 500px;
+            opacity: 0.9;
+        }
+
+        .track-info {
+            border-top: 2px solid var(--sage);
+            padding-top: 2rem;
+            max-width: 400px;
+        }
+
+        .small-caps {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--terra);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Slider */
+        .gallery-container {
+            overflow: hidden;
+            padding: 5rem 0;
+        }
+
+        .scroll-track {
+            display: flex;
+            gap: 2.5rem;
+            animation: scroll 40s linear infinite;
+        }
+
+        .scroll-track img {
+            width: 40vw;
+            height: 60vh;
+            object-fit: cover;
+            border-radius: 3rem;
+            filter: grayscale(100%);
+            transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .scroll-track img:hover { 
+            filter: grayscale(0%); 
+            transform: scale(1.02); 
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Mastery Grid */
+        .mastery-grid-section {
+            background-color: var(--sage);
+            color: var(--linen);
+            padding: 8rem 5%;
+            border-radius: 5rem;
+            margin: 0 2%;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .gold-serif {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            border: 1px solid rgba(250, 249, 246, 0.2);
+        }
+
+        .grid-item {
+            padding: 4rem;
+            border: 1px solid rgba(250, 249, 246, 0.1);
+            transition: background 0.4s;
+        }
+
+        .grid-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .item-num { 
+            color: var(--gold); 
+            font-size: 0.7rem; 
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            display: block; 
+            text-transform: uppercase;
+        }
+
+        .grid-item h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
