@@ -4,221 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viyaan Montessori | The Architecture of Independence</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        viyaanGold: '#F4D03F',
+                        viyaanSage: '#2E473B',
+                        viyaanTerra: '#E2725B',
+                        viyaanLinen: '#FAF9F6',
+                    },
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* --- CSS STYLES --- */
-        :root {
-            --sage: #2E473B;
-            --terra: #E2725B;
-            --gold: #F4D03F;
-            --linen: #FAF9F6;
-            --white: #FFFFFF;
-        }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+        .parallax-text { transform: translateZ(0); will-change: transform; }
+        .hover-lift { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .hover-lift:hover { transform: translateY(-10px); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAF9F6; }
+        ::-webkit-scrollbar-thumb { background: #2E473B; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-viyaanLinen text-viyaanSage antialiased">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <nav class="fixed top-0 w-full z-[100] p-6 lg:p-10 flex justify-between items-end">
+        <div class="flex flex-col">
+            <span class="text-xs font-bold tracking-[0.4em] uppercase opacity-60">Bangalore</span>
+            <div class="text-4xl font-syne font-extrabold text-viyaanTerra">VIYAAN</div>
+        </div>
+        <div class="glass border border-viyaanSage/10 px-8 py-4 rounded-full flex gap-10 text-[10px] font-bold uppercase tracking-widest">
+            <a href="#manifesto" class="hover:text-viyaanTerra transition">The Manifesto</a>
+            <a href="#lab" class="hover:text-viyaanTerra transition">The Lab</a>
+            <a href="#future" class="hover:text-viyaanTerra transition">Future Tracks</a>
+            <a href="#apply" class="text-viyaanTerra">Enroll 2026</a>
+        </div>
+    </nav>
 
-        body {
-            background-color: var(--linen);
-            color: var(--sage);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    <section id="manifesto" class="min-h-screen flex items-center px-6 lg:px-20 pt-20">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10">
+            <div class="lg:col-span-8">
+                <h1 class="text-7xl lg:text-[10rem] font-syne font-extrabold leading-[0.85] tracking-tighter mb-10">
+                    OWN THE <br><span class="text-viyaanTerra italic font-serif font-light">FUTURE.</span>
+                </h1>
+                <p class="text-2xl lg:text-3xl max-w-2xl font-sans font-light leading-relaxed">
+                    At Viyaan, we don’t teach children to follow. We provide the architecture for them to <span class="font-bold">stand alone</span>, plan their days, and ignite their inner energy. 
+                </p>
+            </div>
+            <div class="lg:col-span-4 flex flex-col justify-end pb-10">
+                <div class="border-t-4 border-viyaanSage pt-6">
+                    <p class="text-sm font-bold uppercase tracking-widest mb-4">The Track Change</p>
+                    <p class="text-sm opacity-80 leading-loose">
+                        Moving from traditional passive education to active mastery. Our boutique Bangalore villa is a scientific environment designed for the 2026 generation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        /* Navigation */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            background: linear-gradient(to bottom, var(--linen), transparent);
-        }
+    <section class="py-20 px-6 overflow-hidden">
+        <div class="flex flex-nowrap gap-10 animate-scroll">
+            <img src="https://images.unsplash.com/photo-1560448204-61dc36dc98c8?q=80&w=1000&auto=format&fit=crop" class="w-[60vw] h-[70vh] object-cover rounded-[4rem] hover-lift grayscale hover:grayscale-0 transition duration-700" alt="Sunlight in the Villa">
+            <img src="https://images.unsplash.com/photo-1597516266579-757008af6563?q=80&w=1000&auto=format&fit=crop" class="w-[40vw] h-[70vh] object-cover rounded-[4rem] hover-lift grayscale hover:grayscale-0 transition duration-700" alt="Montessori Math Tools">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1000&auto=format&fit=crop" class="w-[50vw] h-[70vh] object-cover rounded-[4rem] hover-lift grayscale hover:grayscale-0 transition duration-700" alt="Outdoor Nature Lab">
+        </div>
+    </section>
 
-        .logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--terra);
-        }
+    <section id="lab" class="py-32 px-6 lg:px-20 bg-viyaanSage text-viyaanLinen rounded-[5rem]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24 flex flex-col md:flex-row justify-between items-end gap-10">
+                <h2 class="text-6xl font-syne font-bold leading-none">The Mastery <br><span class="text-viyaanGold italic font-serif">Grid.</span></h2>
+                <p class="max-w-md text-viyaanLinen/60 uppercase tracking-widest text-xs font-bold">How we teach "Everything" through self-decision.</p>
+            </div>
 
-        .location-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            opacity: 0.6;
-        }
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-1px bg-viyaanLinen/10">
+                <div class="p-10 hover:bg-viyaanLinen/5 transition group">
+                    <span class="text-viyaanGold text-xs font-bold uppercase tracking-widest block mb-10">01 / Practical Logic</span>
+                    <h3 class="text-3xl font-syne mb-6">Autonomous Living</h3>
+                    <p class="text-sm opacity-60 leading-relaxed group-hover:opacity-100 transition">From age 3, children manage real kitchens and real tools. They don't just "learn" to pour; they master the physical laws of balance and care.</p>
+                </div>
+                <div class="p-10 hover:bg-viyaanLinen/5 transition group">
+                    <span class="text-viyaanGold text-xs font-bold uppercase tracking-widest block mb-10">02 / Mathematical Energy</span>
+                    <h3 class="text-3xl font-syne mb-6">Concrete Infinity</h3>
+                    <p class="text-sm opacity-60 leading-relaxed group-hover:opacity-100 transition">We use the Decimal System with Golden Beads. A Viyaan child physically holds "one thousand" in their hand before they ever write the number.</p>
+                </div>
+                <div class="p-10 hover:bg-viyaanLinen/5 transition group">
+                    <span class="text-viyaanGold text-xs font-bold uppercase tracking-widest block mb-10">03 / Future Planning</span>
+                    <h3 class="text-3xl font-syne mb-6">Executive Agency</h3>
+                    <p class="text-sm opacity-60 leading-relaxed group-hover:opacity-100 transition">The Work Cycle. No bells. The child plans their morning, manages their time, and solves problems without asking for permission.</p>
+                </div>
+                <div class="p-10 hover:bg-viyaanLinen/5 transition group">
+                    <span class="text-viyaanGold text-xs font-bold uppercase tracking-widest block mb-10">04 / Global Vitality</span>
+                    <h3 class="text-3xl font-syne mb-6">Eco-Citizenship</h3>
+                    <p class="text-sm opacity-60 leading-relaxed group-hover:opacity-100 transition">Botany and Zoology in our garden. Understanding life cycles through "Heavy Work" — digging, planting, and nurturing the earth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(46, 71, 59, 0.1);
-            border-radius: 50px;
-            padding: 1rem 2.5rem;
-        }
+    <section id="future" class="py-40 px-6 lg:px-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-syne font-bold text-center mb-20">The Scientific <span class="italic font-serif text-viyaanTerra underline underline-offset-8">Difference.</span></h2>
+            
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row justify-between border-b border-viyaanSage/20 pb-10 gap-10">
+                    <div class="md:w-1/3">
+                        <h4 class="font-bold text-viyaanTerra uppercase tracking-widest text-xs">Concentration</h4>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-xl italic font-serif mb-4">Traditional: Interruptions for bells and classes.</p>
+                        <p class="text-xl font-bold">Viyaan: Uninterrupted 3-hour flow to build deep mental focus.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between border-b border-viyaanSage/20 pb-10 gap-10">
+                    <div class="md:w-1/3">
+                        <h4 class="font-bold text-viyaanTerra uppercase tracking-widest text-xs">Authority</h4>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-xl italic font-serif mb-4">Traditional: The teacher is the boss.</p>
+                        <p class="text-xl font-bold">Viyaan: The child is the leader; the environment is the teacher.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between border-b border-viyaanSage/20 pb-10 gap-10">
+                    <div class="md:w-1/3">
+                        <h4 class="font-bold text-viyaanTerra uppercase tracking-widest text-xs">Nutrition</h4>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-xl italic font-serif mb-4">Traditional: Standard snack times.</p>
+                        <p class="text-xl font-bold">Viyaan: Self-service "Chef’s Table" – children prepare and eat when their body decides.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
+    <footer id="apply" class="bg-viyaanGold py-32 px-6 lg:px-20 rounded-t-[10rem]">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-7xl font-syne font-extrabold mb-10 leading-tight">Start the <br>Journey.</h2>
+                <p class="text-xl font-sans mb-12 opacity-80">
+                    We are accepting applications for the June 2026 Batch. Limited to 25 children to maintain the "Boutique" quality of our flagship HSR Villa.
+                </p>
+                <div class="flex gap-4">
+                    <div class="h-16 w-16 bg-viyaanSage rounded-full flex items-center justify-center text-viyaanGold animate-bounce">
+                        ↓
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] self-center">Download Prospectus</span>
+                </div>
+            </div>
+            <div class="bg-viyaanLinen p-12 rounded-[4rem] shadow-2xl">
+                <form class="space-y-8">
+                    <div class="border-b-2 border-viyaanSage/10 pb-4">
+                        <label class="text-[10px] font-bold uppercase tracking-widest opacity-40">Parent's Full Name</label>
+                        <input type="text" class="w-full bg-transparent outline-none text-xl font-syne py-2" placeholder="Firstname Lastname">
+                    </div>
+                    <div class="border-b-2 border-viyaanSage/10 pb-4">
+                        <label class="text-[10px] font-bold uppercase tracking-widest opacity-40">Direct Contact</label>
+                        <input type="tel" class="w-full bg-transparent outline-none text-xl font-syne py-2" placeholder="+91 0000 000000">
+                    </div>
+                    <div class="border-b-2 border-viyaanSage/10 pb-4">
+                        <label class="text-[10px] font-bold uppercase tracking-widest opacity-40">Child's Birth Year</label>
+                        <select class="w-full bg-transparent outline-none text-xl font-syne py-2">
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <button class="w-full bg-viyaanSage text-viyaanLinen py-6 rounded-3xl font-syne font-bold text-xl hover:scale-105 transition shadow-2xl">Request Vision Tour</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-40 text-center opacity-30 text-[10px] font-bold uppercase tracking-[0.5em]">
+            Viyaan Montessori | Bangalore 2026 | The Future of Learning
+        </div>
+    </footer>
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--sage);
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--terra); }
-        .enroll-btn { color: var(--terra) !important; }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            padding: 12rem 5% 5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.85;
-            letter-spacing: -0.05em;
-            margin-bottom: 2.5rem;
-        }
-
-        .italic-serif {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            color: var(--terra);
-            font-weight: 400;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            max-width: 500px;
-            opacity: 0.9;
-        }
-
-        .track-info {
-            border-top: 2px solid var(--sage);
-            padding-top: 2rem;
-            max-width: 400px;
-        }
-
-        .small-caps {
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--terra);
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        /* Gallery Slider */
-        .gallery-container {
-            overflow: hidden;
-            padding: 5rem 0;
-        }
-
-        .scroll-track {
-            display: flex;
-            gap: 2.5rem;
-            animation: scroll 40s linear infinite;
-        }
-
-        .scroll-track img {
-            width: 40vw;
-            height: 60vh;
-            object-fit: cover;
-            border-radius: 3rem;
-            filter: grayscale(100%);
-            transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .scroll-track img:hover { 
-            filter: grayscale(0%); 
-            transform: scale(1.02); 
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Mastery Grid */
-        .mastery-grid-section {
-            background-color: var(--sage);
-            color: var(--linen);
-            padding: 8rem 5%;
-            border-radius: 5rem;
-            margin: 0 2%;
-        }
-
-        .section-header {
-            margin-bottom: 5rem;
-            text-align: center;
-        }
-
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 4rem;
-            line-height: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .gold-serif {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            border: 1px solid rgba(250, 249, 246, 0.2);
-        }
-
-        .grid-item {
-            padding: 4rem;
-            border: 1px solid rgba(250, 249, 246, 0.1);
-            transition: background 0.4s;
-        }
-
-        .grid-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .item-num { 
-            color: var(--gold); 
-            font-size: 0.7rem; 
-            font-weight: 700; 
-            margin-bottom: 2rem; 
-            display: block; 
-            text-transform: uppercase;
-        }
-
-        .grid-item h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
+</body>
+</html>
