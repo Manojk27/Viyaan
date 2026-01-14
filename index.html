@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viyaan Montessori | The Architecture of Independence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles & Variables */
+        :root {
+            --viyaan-sage: #2E473B;
+            --viyaan-terra: #E2725B;
+            --viyaan-gold: #F4D03F;
+            --viyaan-linen: #FAF9F6;
+        }
+
+        body {
+            background-color: var(--viyaan-linen);
+            color: var(--viyaan-sage);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-syne { font-family: 'Syne', sans-serif; }
+        .font-serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+        /* Infinite Scroll Movement Logic */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            display: flex;
+            width: calc(250% + 2rem);
+            animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover { animation-play-state: paused; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 71, 59, 0.1);
+        }
+
+        .hover-lift { transition: transform 0.4s ease; }
+        .hover-lift:hover { transform: translateY(-10px); }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <nav class="fixed top-0 w-full z-[100] p-6 lg:p-10 flex justify-between items-end">
+        <div class="flex flex-col">
+            <span class="text-[10px] font-bold tracking-[0.4em] uppercase opacity-60">Bangalore 2026</span>
+            <div class="text-4xl font-syne font-extrabold text-[#E2725B]">VIYAAN</div>
+        </div>
+        <div class="glass px-8 py-4 rounded-full flex gap-10 text-[10px] font-bold uppercase tracking-widest">
+            <a href="#manifesto" class="hover:text-[#E2725B] transition">Manifesto</a>
+            <a href="#lab" class="hover:text-[#E2725B] transition">The Lab</a>
+            <a href="#apply" class="text-[#E2725B]">Enroll</a>
+        </div>
+    </nav>
+
+    <section id="manifesto" class="min-h-screen flex items-center px-6 lg:px-20 pt-32">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10">
+            <div class="lg:col-span-8">
+                <h1 class="text-6xl lg:text-[9rem] font-syne font-extrabold leading-[0.9] tracking-tighter mb-10">
+                    OWN THE <br><span class="text-[#E2725B] font-serif-italic font-light">FUTURE.</span>
+                </h1>
+                <p class="text-xl lg:text-3xl max-w-2xl font-light leading-relaxed">
+                    At Viyaan, we don’t teach children to follow. We provide the architecture for them to <span class="font-bold">stand alone</span>, plan their days, and ignite their inner energy. 
+                </p>
+            </div>
+            <div class="lg:col-span-4 flex flex-col justify-end pb-10 border-t-4 border-[#2E473B] pt-6">
+                <span class="text-xs font-bold uppercase tracking-widest mb-4">The Track Change</span>
+                <p class="text-sm opacity-80 leading-loose">
+                    Moving from traditional passive education to active mastery. Our boutique Bangalore villa is a scientific environment designed for the 2026 generation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 overflow-hidden relative">
+        <div class="animate-scroll gap-10" id="gallery">
+            <img src="https://images.unsplash.com/photo-1560448204-61dc36dc98c8?q=80&w=1000&auto=format&fit=crop" class="w-[70vw] lg:w-[40vw] h-[50vh] lg:h-[70vh] object-cover rounded-[3rem] hover-lift grayscale hover:grayscale-0" alt="Villa Sunlight">
+            <img src="
